@@ -12,11 +12,19 @@ const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
 
+app.use(morgan(morganOption));
+app.use(helmet());
+app.use(cors());
+
 app.get('/', (req, res) => { 
   res.send('Hello, world!'); 
 });
 
-app.use('/api/project', projectRouter);
+app.use('/api/projects', projectRouter);
+
+//app uses Route- path /api/project and project component
+//populate db then write get and post routes for db info
+//create table, seed, make connection
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
@@ -29,8 +37,5 @@ app.use(function errorHandler(error, req, res, next) {
   res.status(500).json(response);
 });
 
-app.use(morgan(morganOption));
-app.use(helmet());
-app.use(cors());
 
 module.exports = app;
