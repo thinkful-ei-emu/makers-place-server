@@ -8,6 +8,8 @@ const projectRouter = require('./project');
 
 const app = express();
 
+app.use(express.json());
+
 const morganOption = (NODE_ENV === 'production')
   ? 'tiny'
   : 'common';
@@ -16,15 +18,16 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
+app.use('/api/projects', projectRouter);
+
 app.get('/', (req, res) => { 
   res.send('Hello, world!'); 
 });
 
-app.use('/api/projects', projectRouter);
-
 //app uses Route- path /api/project and project component
 //populate db then write get and post routes for db info
 //create table, seed, make connection
+//make POST route and access via postman 1st
 
 app.use(function errorHandler(error, req, res, next) {
   let response;

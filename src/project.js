@@ -1,21 +1,22 @@
 const express = require('express');
+const projectsService = require('./projectsService');
 
 const projectRouter = express.Router();
 
+
+//GET ALL PROJECTS
 projectRouter
   .route('/')
-  .get((req, res) => {
-    res.json([{
-      id:1,
-      title: 'coreys my 3d printed sword',
-      description: 'the sword is 3d printed and its cool'
-    },
-    {
-      id:2,
-      title: 'my pallet wood desk',
-      description: 'its a desk'
-    }]);
+  .get((req, res, next) => {
+    const knexInstance = req.app.get('db');
+    projectsService.getAllProjects(knexInstance)
+      .then(projects => {
+        res.json(projects);
+      })
+      .catch(next);
+  }); 
+    
+//res.send('testing');
 
-  });
 
 module.exports = projectRouter;
