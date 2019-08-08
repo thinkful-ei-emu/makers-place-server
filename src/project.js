@@ -35,7 +35,7 @@ projectRouter
       .then(project => {
         res
           .status(201)
-          .location(`/api/projects`)
+          .location('/api/projects')
           .json(serializeProject(project));
       });
 
