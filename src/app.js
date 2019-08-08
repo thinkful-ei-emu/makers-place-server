@@ -24,11 +24,6 @@ app.get('/', (req, res) => {
   res.send('Hello, world!'); 
 });
 
-//app uses Route- path /api/project and project component
-//populate db then write get and post routes for db info
-//create table, seed, make connection
-//make POST route and access via postman 1st
-
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === 'production') {

@@ -26,3 +26,9 @@ Run the tests `npm test`
 ## Deploying
 
 When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+
+### SEED DB 
+
+psql -U coreymoore -d makersplace -f ./seeds/seed.makers_place_projects.sql
+
+pass: 1234

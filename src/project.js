@@ -10,6 +10,7 @@ const serializeProject = project => ({
   id: project.id,
   title: xss(project.title),
   description: xss(project.description),
+  img_url: xss(project.img_url)
 });
 
 //GET ALL PROJECTS
@@ -25,8 +26,8 @@ projectRouter
   })
   .post(bodyParser, (req, res, next) => {
 
-    const { title, description } = req.body;
-    const newProject = { title, description };
+    const { title, description, img_url } = req.body;
+    const newProject = { title, description, img_url };
 
     projectsService.insertProject(
       req.app.get('db'),
