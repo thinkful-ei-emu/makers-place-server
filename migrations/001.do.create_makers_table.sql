@@ -1,4 +1,4 @@
-CREATE TABLE makers_place (
+CREATE TABLE makers_projects (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
   description TEXT,

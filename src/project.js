@@ -1,6 +1,7 @@
 const express = require('express');
 const projectsService = require('./projectsService');
 const xss = require('xss');
+const { requireAuth } = require('./middleware/jwt-auth');
 
 const projectRouter = express.Router();
 const bodyParser = express.json();
@@ -38,10 +39,27 @@ projectRouter
           .status(201)
           .location('/api/projects')
           .json(serializeProject(project));
-      });
-
-
+      })
+      .catch(next);
   });
+
+  /* async/await syntax for promises */
+async function checkArticleExists(req, res, next) {
+  try {
+    const article = await ArticlesService.getById(
+      req.app.get('db'),
+      req.params.article_id
+    )
+    if (!article)
+      return res.status(404).json({
+        error: `Article doesn't exist`
+      })
+    res.article = article
+    next()
+  } catch (error) {
+    next(error)
+  }
+}
 
 
 module.exports = projectRouter;

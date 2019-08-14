@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS makers_place;
+DROP TABLE IF EXISTS makers_projects;

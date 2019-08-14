@@ -31,6 +31,8 @@ When your new project is ready for deployment, add a new Heroku application with
 
 psql -U coreymoore -d makersplace -f ./seeds/seed.makers_place_projects.sql
 
-pass: 1234
+<<<<<<< HEAD
+=======
+
 
 ### npm run migrate -- 1
