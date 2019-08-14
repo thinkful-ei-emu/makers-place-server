@@ -43,15 +43,6 @@ projectRouter
       .catch(next);
   });
 
-// projectRouter
-//   .route('/:article_id')
-//   .all(requireAuth)
-//   .all(checkArticleExists)
-//   .get((req, res) => {
-//     res.json(projectsService.serializeArticle(res.article));
-//   });
-
-
   /* async/await syntax for promises */
 async function checkArticleExists(req, res, next) {
   try {
