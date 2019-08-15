@@ -44,17 +44,17 @@ projectRouter
   });
 
   /* async/await syntax for promises */
-async function checkArticleExists(req, res, next) {
+async function checkProjectExists(req, res, next) {
   try {
-    const article = await ArticlesService.getById(
+    const project = await projectsService.getById(
       req.app.get('db'),
-      req.params.article_id
+      req.params.project_id
     )
-    if (!article)
+    if (!project)
       return res.status(404).json({
-        error: `Article doesn't exist`
+        error: `Project doesn't exist`
       })
-    res.article = article
+    res.project = project
     next()
   } catch (error) {
     next(error)
