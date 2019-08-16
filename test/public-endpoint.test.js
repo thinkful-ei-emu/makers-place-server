@@ -120,43 +120,43 @@ describe('Users Endpoints', function() {
           .expect(400, { error: 'Username already taken' });
       });
       
-      // context('Happy path', () => {
-      //   it('responds 201, serialized user, storing bcryped password', () => {
-      //     const newUser = {
-      //       id: 1,
-      //       user_name: 'test user_name',
-      //       password: '11AAaa!!',
-      //       date_created: new Date('2029-01-22T16:28:32.615Z'),
-      //     };
-      //     return supertest(app)
-      //       .post('/api/users')
-      //       .send(newUser)
-      //       .expect(201)
-      //       .expect(res => {
-      //         expect(res.body).to.have.property('id');
-      //         expect(res.body.user_name).to.eql(newUser.user_name);
-      //         expect(res.body).to.not.have.property('password');
-      //         expect(res.headers.location).to.eql(`/api/users/${res.body.id}`);
-      //       })
-      //       .expect(res =>
-      //         db
-      //           .from('makers_users')
-      //           .select('*')
-      //           .where({ id: res.body.id })
-      //           .first()
-      //           .then(row => {
-      //             expect(row.user_name).to.eql(newUser.user_name);
+      context('Happy path', () => {
+        it('responds 201, serialized user, storing bcryped password', () => {
+          const newUser = {
+            id: 1,
+            user_name: 'test user_name',
+            password: '11AAaa!!',
+            date_created: new Date('2029-01-22T16:28:32.615Z'),
+          };
+          return supertest(app)
+            .post('/api/users')
+            .send(newUser)
+            .expect(201)
+            .expect(res => {
+              expect(res.body).to.have.property('id');
+              expect(res.body.user_name).to.eql(newUser.user_name);
+              expect(res.body).to.not.have.property('password');
+              expect(res.headers.location).to.eql(`/api/users/${res.body.id}`);
+            })
+            .expect(res =>
+              db
+                .from('makers_users')
+                .select('*')
+                .where({ id: res.body.id })
+                .first()
+                .then(row => {
+                  expect(row.user_name).to.eql(newUser.user_name);
                   
-      //             return bcrypt.compare(newUser.password, row.password);
-      //           })
-      //           .then(compareMatch => {
-      //             expect(compareMatch).to.be.true;
-      //           })
+                  return bcrypt.compare(newUser.password, row.password);
+                })
+                .then(compareMatch => {
+                  expect(compareMatch).to.be.true;
+                })
                 
-      //       );
+            );
 
-      //   });
-      // });
+        });
+      });
 
     });
   });
