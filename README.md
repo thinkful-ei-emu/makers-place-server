@@ -1,38 +1,43 @@
-# corey-express-boilerplate
-
-# Express Boilerplate!
-
-This is a boilerplate project used for starting new projects!
-
-## Set up
-
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
-
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
-
-## Scripts
-
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
-
-### SEED DB 
-
-psql -U coreymoore -d makersplace -f ./seeds/seed.makers_place_projects.sql
-
-<<<<<<< HEAD
-=======
+##App name 
+Makers Place
 
 
-### npm run migrate -- 1
+##Link to live app 
+https://coreys-makers-place-app.now.sh
+
+
+##Docs 
+GET /api/feed 
+{
+  title: "New Project",
+  description: "This is a project I am proud of",
+  img_url: "www.img.com"
+}
+
+POST /api/users
+{
+  user_name: "BobbyBrown",
+  password: "BaconIsGreat"
+}
+
+
+##Screenshots
+![Landing Page](https://i.imgur.com/JO92kSz.png)
+
+![Login Page](blob:https://imgur.com/a7ea1a3d-ce6c-4c7d-96f3-e981bf8969c0)
+
+![Registration Page](https://i.imgur.com/I66J433.png)
+
+![Main Feed Page](https://i.imgur.com/08WkaME.png)
+
+![Add Project Page](blob:https://imgur.com/44ae84f9-ff7f-4eda-ac46-49396e2495ff)
+
+
+##Summary 
+To Use this apllication you must register a new user or login with an existing user. You will then be taken to the main feed page which display a list of all projects uploaded to the database. From there, if logged in you can add a project of your own with the 'Add Project' button.
+
+
+#Tech used 
+Javascript, Html5, CSS3, React, Node.js, Express, PostgreSQL, Knex.
+  Security: XSS, Bcrypt, Helmet, Cors.
+  Testing: Supertest, Mocha, Chai, Nodemon. 
