@@ -1,43 +1,60 @@
-##App name 
-Makers Place
+# Makers Place
 
 
-##Link to live app 
+## Link to live app 
+
 https://coreys-makers-place-app.now.sh
 
 
-##Docs 
-GET /api/feed 
-{
-  title: "New Project",
-  description: "This is a project I am proud of",
-  img_url: "www.img.com"
-}
+## Summary 
 
-POST /api/users
-{
-  user_name: "BobbyBrown",
-  password: "BaconIsGreat"
-}
+This server was built for the Makers Space clint application. Makers Place allows users to create an account and share information, pictures of the projects they have created. All information is stored in one database;
 
 
-##Screenshots
+## Tech Stack:
+
+**Back-End**: NodeJS, Express
+
+**Security**: JWT, XSS, Bcrypt
+
+**Database**: PostgreSQL
+
+**Testing**: Jest, Enzyme, Chai, Mocha, Supertest
+
+
+## Docs 
+
+/api/projects (GET '/' all projects)
+
+/api/projects (POST '/' submit new project)
+
+/api/users (POST '/' register new user)
+
+/api/auth (POST '/login' login with database credentials)
+
+
+## Screenshots
+
 ![Landing Page](https://i.imgur.com/JO92kSz.png)
 
-![Login Page](blob:https://imgur.com/a7ea1a3d-ce6c-4c7d-96f3-e981bf8969c0)
+![Login Page](https://i.imgur.com/ChrEdEt.png)
 
 ![Registration Page](https://i.imgur.com/I66J433.png)
 
 ![Main Feed Page](https://i.imgur.com/08WkaME.png)
 
-![Add Project Page](blob:https://imgur.com/44ae84f9-ff7f-4eda-ac46-49396e2495ff)
+![Add Project Page](https://i.imgur.com/1qytyGG.png)
 
 
-##Summary 
-To Use this apllication you must register a new user or login with an existing user. You will then be taken to the main feed page which display a list of all projects uploaded to the database. From there, if logged in you can add a project of your own with the 'Add Project' button.
+## Scripts:
+
+Start the application `npm start`
+
+Start nodemon for the application `npm run dev`
+
+Run the tests `npm test`
 
 
-#Tech used 
-Javascript, Html5, CSS3, React, Node.js, Express, PostgreSQL, Knex.
-  Security: XSS, Bcrypt, Helmet, Cors.
-  Testing: Supertest, Mocha, Chai, Nodemon. 
+## Deploying
+
+When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
